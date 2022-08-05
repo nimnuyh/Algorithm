@@ -1,6 +1,10 @@
 class Solution:
     def twoSum(self, nums, target) :
-        pairs = [target - num for num in nums]
-        for i, pair in enumerate(pairs):
-            if pair in nums and i != nums.index(pair):
-                return [i, nums.index(pair)]
+        dict_num = {}
+        for i in range(len(nums)) :
+            dict_num[nums[i]] = i
+        for x in range(len(nums)) :
+            a = target - nums[x]
+            if a in dict_num :
+                if x != dict_num[a] :
+                    return [x, dict_num[a]]
