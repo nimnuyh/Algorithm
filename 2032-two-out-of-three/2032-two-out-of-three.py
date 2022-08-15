@@ -10,5 +10,11 @@ class Solution(object):
         nums2 = set(nums2)
         nums3 = set(nums3)
         
-        ans = list((nums1 & nums2) | (nums2 & nums3) | (nums3 & nums1))
+        n12 = [num for num in nums1 if num in nums2]
+        n23 = [num for num in nums2 if num in nums3]
+        n31 = [num for num in nums3 if num in nums1]
+        
+        ans = n12 + n23 + n31
+        ans = list(set(ans))
+        
         return ans
